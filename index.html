@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Login 10</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="img js-fullheight" style="background-image: url(images/bg.jpg);">
+	<?php
+	//printing error message
+	if (isset($error_msg)) {
+		echo $error_msg;
+	}
+	?>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">RGIPT Attendance Management System</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+						<h3 class="mb-4 text-center">Have an account? Login</h3>
+
+						<form method="post" class="signin-form">
+							<div class="form-group">
+
+								<input type="text" name="username" class="form-control" id="input1"
+									placeholder="your username" />
+							</div>
+
+							<div class="form-group">
+
+								<input type="password" name="password" class="form-control" id="input1"
+									placeholder="your password" />
+
+							</div>
+
+
+							<div class="form-group" class="radio">
+								<label for="input1" class="col-sm-3 control-label">Role</label>
+
+								<label>
+									<input type="radio" name="type" id="optionsRadios1" value="student" checked> Student
+								</label>
+								<label>
+									<input type="radio" name="type" id="optionsRadios1" value="teacher"> Teacher
+								</label>
+								<label>
+									<input type="radio" name="type" id="optionsRadios1" value="admin"> Admin
+								</label>
+							</div>
+
+
+							<input type="submit" class="btn btn-primary col-md-3 col-md-offset-7" value="Login"
+								name="login" />
+						</form>
+						<div class="form-group d-md-flex">
+							<div class="w-50 text-md-left">
+								<a href="reset.php" style="color: #fff">Forgot Password?</a>
+							</div>
+							<div class="w-50 text-md-right">
+								<a href="signup.php" style="color: #fff">Sign Up</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>
