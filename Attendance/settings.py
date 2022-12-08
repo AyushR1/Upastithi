@@ -73,16 +73,17 @@ WSGI_APPLICATION = 'Attendance.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+#CREATE USER 'ayushr1'@'localhost' IDENTIFIED BY 'attsystem';
 
 DATABASES = {
     'default': {
        # 'ENGINE': 'django.db.backends.sqlite3',
        # 'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE':'django.db.backends.mysql',
-        'NAME':'student_management_system',
-        'USER':'student_management_system',
-        'PASSWORD':'student_management_system',
-        'HOST':'localhost',
+        'NAME':'att',
+        'USER':'ayushr1',
+        'PASSWORD':'attsystem',
+        'HOST':'127.0.0.1',
         'PORT':'3306'
     }
 }
