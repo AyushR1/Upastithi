@@ -45,9 +45,6 @@ class Students(models.Model):
     session_end_year=models.DateField()
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now_add=True)
-    #Added Two Fields More So New Student Go in New Session
-    session_start=models.DateField()
-    session_end=models.DateField()
     objects = models.Manager()
 
 class Attendance(models.Model):
