@@ -126,4 +126,6 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATIC_URL = '/static/'
+AUTH_USER_MODEL="student_management_app.CustomUser"
+AUTHENTICATION_BACKENDS=['student_management_app.EmailBackEnd.EmailBackEnd']
