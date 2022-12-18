@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 class AdminHOD(models.Model):
     id=models.AutoField(primary_key=True)
@@ -44,6 +45,9 @@ class Students(models.Model):
     session_end_year=models.DateField()
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now_add=True)
+    #Added Two Fields More So New Student Go in New Session
+    session_start=models.DateField()
+    session_end=models.DateField()
     objects = models.Manager()
 
 class Attendance(models.Model):
