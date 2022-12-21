@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Student Management System | Log in</title>
+  <title>Upastithi | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,15 +19,14 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-image: url('{% static 'back.jpg' %}'); background-size: cover;  background-position: center;">
 <div class="login-box">
-  <div class="login-logo">
-    <a href="../../index2.html"><b>Student</b> Management System</a>
-  </div>
+
+  <img src="{% static 'logo.png' %}" alt="Attendance" width="350">
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to Student Management System</p>
+      <p class="login-box-msg">Sign in</p>
 
       <form action="/doLogin" method="post">
           {% csrf_token %}

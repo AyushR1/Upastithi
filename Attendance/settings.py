@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
+ 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,6 +28,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+MEDIA_URL="/media/"
+MEDIA_ROOT=os.path.join(BASE_DIR,"media")
+
+STATIC_URL="/static/"
+STATIC_ROOT=os.path.join(BASE_DIR,"static")
+ 
 
 # Application definition
 
@@ -48,7 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'student_management_app.LoginCheckMiddleWare.LoginCheckMiddleWare'
+    'attsystem.LoginCheckMiddleWare.LoginCheckMiddleWare'
 ]
 
 ROOT_URLCONF = 'Attendance.urls'
@@ -123,10 +130,26 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+AUTH_USER_MODEL="attsystem.CustomUser"
+AUTHENTICATION_BACKENDS=['attsystem.EmailBackEnd.EmailBackEnd']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
-STATIC_URL = '/static/'
-AUTH_USER_MODEL="student_management_app.CustomUser"
-AUTHENTICATION_BACKENDS=['student_management_app.EmailBackEnd.EmailBackEnd']
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+EMAIL_BACKEND="django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH=os.path.join(BASE_DIR,"sent_mails")
+
+# EMAIL_HOST="smtp.gmail.com"
+# EMAIl_PORT=587
+# EMAIL_HOST_USER="GMAIL_EMAIL"
+# EMAIL_HOST_PASSWORD="GMAIL PASSWORD"
+# EMAIL_USE_TLS=True
+# DEFAULT_FROM_EMAIL="Upastithi <GMAIl_EMAIL>"
+#
+
+#Enable Only Making Project Live on Heroku
+STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+import dj_database_url
+prod_db=dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)

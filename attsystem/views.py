@@ -6,7 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from student_management_app.EmailBackEnd import EmailBackEnd
+from attsystem.EmailBackEnd import EmailBackEnd
 
 
 def showDemoPage(request):

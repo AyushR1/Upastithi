@@ -1,6 +1,6 @@
 from django import forms
 
-from student_management_app.models import Courses
+from attsystem.models import Courses
 
 class DateInput(forms.DateInput):
     input_type = "date"
