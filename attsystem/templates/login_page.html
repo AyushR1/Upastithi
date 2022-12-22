@@ -28,8 +28,8 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in</p>
 
-      <form action="/doLogin" method="post">
-          {% csrf_token %}
+      <form action="/doLogin" method="post" id="demo-form">
+      {% csrf_token %}
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email" name="email">
           <div class="input-group-append">
@@ -46,10 +46,25 @@
             </div>
           </div>
         </div>
+        <div class="input-group mb-3">
+                <div class="g-recaptcha" data-sitekey="6LeWtqUZAAAAAMO6YmxX5_XWel9hLWrb_iEiff26"></div>
+        </div>
         <div class="row">
           <!-- /.col -->
           <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block" >Sign In</button>
+          </div><!-- /.col -->
+           <div class="col-12 text-center">
+             <a href="{% url 'password_reset' %}">Reset Password</a>
+          </div><!-- /.col -->
+            <div class="col-12 text-center">
+             <a href="{% url 'signup_admin' %}">Admin Signup FOR TESTING</a>
+          </div><!-- /.col -->
+                        <div class="col-12 text-center">
+             <a href="{% url 'signup_staff' %}">Staff Signup FOR TESTING</a>
+          </div><!-- /.col -->
+                                    <div class="col-12 text-center">
+             <a href="{% url 'signup_student' %}">Student Signup FOR TESTING</a>
           </div><!-- /.col -->
         </div>
         <div class="row">
@@ -58,6 +73,9 @@
             {% for message in messages %}
             {% if message.tags == 'error' %}
             <div class="alert alert-danger" style="margin-top:10px">{{ message }}</div>
+            {% endif %}
+            {% if message.tags == 'success' %}
+            <div class="alert alert-success" style="margin-top:10px">{{ message }}</div>
             {% endif %}
             {% endfor %}
           </div>
@@ -79,6 +97,7 @@
 <script src="{% static "plugins/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
 <!-- AdminLTE App -->
 <script src="{% static "dist/js/adminlte.min.js" %}"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </body>
 </html>
