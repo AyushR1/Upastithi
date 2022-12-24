@@ -105,15 +105,6 @@
         </div>
 
                     <div class="input-group mb-3">
-          <input type="file" class="form-control" placeholder="Image" name="profile_pic">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-
-                    <div class="input-group mb-3">
                           <select class="form-control" name="session_year">
                         {% for sessionyear in session_years %}
                           <option value="{{ sessionyear.id }}">{{ sessionyear.session_start_year }} - {{ sessionyear.session_end_year }}</option>

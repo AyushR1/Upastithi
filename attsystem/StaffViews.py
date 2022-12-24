@@ -21,7 +21,7 @@ def staff_home(request):
         course_id_list.append(course.id)
 
     final_course=[]
-    #removing Duplicate Course ID
+    #removing Duplicate Batch ID
     for course_id in course_id_list:
         if course_id not in final_course:
             final_course.append(course_id)

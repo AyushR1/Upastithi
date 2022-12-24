@@ -36,9 +36,8 @@ Manage Student
                       <th>Email</th>
                       <th>Address</th>
                       <th>Gender</th>
-                      <th>Profile Pic</th>
                       <th>Session Year</th>
-                      <th>Course</th>
+                      <th>Batch</th>
                       <th>Last Login</th>
                       <th>Date Joined</th>
                       <th>Action</th>
@@ -54,7 +53,6 @@ Manage Student
                       <td>{{ student.admin.email }}</td>
                       <td>{{ student.address }}</td>
                       <td>{{ student.gender }}</td>
-                      <td><img src="{{ student.profile_pic }}" style="width:100px"/></td>
                       <td>{{ student.session_year_id.session_start_year }} TO {{ student.session_year_id.session_end_year }}</td>
                       <td>{{ student.course_id.course_name }}</td>
                       <td>{{ student.admin.last_login }}</td>

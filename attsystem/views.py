@@ -101,11 +101,6 @@ def do_signup_student(request):
     course_id = request.POST.get("course")
     sex = request.POST.get("sex")
 
-    profile_pic = request.FILES['profile_pic']
-    fs = FileSystemStorage()
-    filename = fs.save(profile_pic.name, profile_pic)
-    profile_pic_url = fs.url(filename)
-
     #try:
     user = CustomUser.objects.create_user(username=username, password=password, email=email, last_name=last_name,
                                           first_name=first_name, user_type=3)
@@ -115,7 +110,6 @@ def do_signup_student(request):
     session_year = SessionYearModel.object.get(id=session_year_id)
     user.students.session_year_id = session_year
     user.students.gender = sex
-    user.students.profile_pic = profile_pic_url
     user.save()
     messages.success(request, "Successfully Added Student")
     return HttpResponseRedirect(reverse("show_login"))
