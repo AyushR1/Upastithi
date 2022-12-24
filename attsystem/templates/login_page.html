@@ -28,7 +28,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in</p>
 
-      <form action="/doLogin" method="post" id="demo-form">
+      <form action="/doLogin" method="post">
       {% csrf_token %}
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email" name="email">
@@ -45,9 +45,6 @@
               <span class="fas fa-lock"></span>
             </div>
           </div>
-        </div>
-        <div class="input-group mb-3">
-                <div class="g-recaptcha" data-sitekey="6LeWtqUZAAAAAMO6YmxX5_XWel9hLWrb_iEiff26"></div>
         </div>
         <div class="row">
           <!-- /.col -->
@@ -97,7 +94,6 @@
 <script src="{% static "plugins/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
 <!-- AdminLTE App -->
 <script src="{% static "dist/js/adminlte.min.js" %}"></script>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </body>
 </html>
