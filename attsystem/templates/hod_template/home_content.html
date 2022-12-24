@@ -43,7 +43,7 @@ Home
               <div class="inner">
                 <h3>{{ course_count }}</h3>
 
-                <p>Total Course</p>
+                <p>Total Batch</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
@@ -108,7 +108,7 @@ Home
               <div class="col-lg-6">
                  <div class="card card-info">
                   <div class="card-header">
-                    <h3 class="card-title">Total Student in Each Course</h3>
+                    <h3 class="card-title">Total Student in Each Batch</h3>
 
                     <div class="card-tools">
                       <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -175,7 +175,7 @@ Home
               options: pieOptions
             });
 
-            //Second Chart for Total Subject in Each Course
+            //Second Chart for Total Subject in Each Batch
                 var subject_count_list={{ subject_count_list }};
                 var course_name_list={{ course_name_list|safe }};
                 var donutChartCanvas = $('#donutChart').get(0).getContext('2d')

@@ -24,7 +24,7 @@ Edit Subject | Subject ID : {{ subject.id }}
                     <input type="hidden" class="form-control" name="subject_id" placeholder="Enter Subject" value="{{ subject.id }}">
                   </div>
                    <div class="form-group">
-                    <label>Course </label>
+                    <label>Batch </label>
                     <select class="form-control" name="course">
                         {% for course in courses %}
                               <option value="{{ course.id }}" {% if course.id == subject.course_id.id %} selected {% endif %}>{{ course.course_name }}</option>

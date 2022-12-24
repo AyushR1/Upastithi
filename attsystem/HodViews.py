@@ -96,11 +96,11 @@ def add_course_save(request):
         try:
             course_model=Courses(course_name=course)
             course_model.save()
-            messages.success(request,"Successfully Added Course")
+            messages.success(request,"Successfully Added Batch")
             return HttpResponseRedirect(reverse("add_course"))
         except Exception as e:
             print(e)
-            messages.error(request,"Failed To Add Course")
+            messages.error(request,"Failed To Add Batch")
             return HttpResponseRedirect(reverse("add_course"))
 
 def add_student(request):
@@ -123,11 +123,6 @@ def add_student_save(request):
             course_id=form.cleaned_data["course"]
             sex=form.cleaned_data["sex"]
 
-            profile_pic=request.FILES['profile_pic']
-            fs=FileSystemStorage()
-            filename=fs.save(profile_pic.name,profile_pic)
-            profile_pic_url=fs.url(filename)
-
             try:
                 user=CustomUser.objects.create_user(username=username,password=password,email=email,last_name=last_name,first_name=first_name,user_type=3)
                 user.students.address=address
@@ -136,7 +131,6 @@ def add_student_save(request):
                 session_year=SessionYearModel.object.get(id=session_year_id)
                 user.students.session_year_id=session_year
                 user.students.gender=sex
-                user.students.profile_pic=profile_pic_url
                 user.save()
                 messages.success(request,"Successfully Added Student")
                 return HttpResponseRedirect(reverse("add_student"))
@@ -254,15 +248,6 @@ def edit_student_save(request):
             course_id = form.cleaned_data["course"]
             sex = form.cleaned_data["sex"]
 
-            if request.FILES.get('profile_pic',False):
-                profile_pic=request.FILES['profile_pic']
-                fs=FileSystemStorage()
-                filename=fs.save(profile_pic.name,profile_pic)
-                profile_pic_url=fs.url(filename)
-            else:
-                profile_pic_url=None
-
-
             try:
                 user=CustomUser.objects.get(id=student_id)
                 user.first_name=first_name
@@ -278,8 +263,6 @@ def edit_student_save(request):
                 student.gender=sex
                 course=Courses.objects.get(id=course_id)
                 student.course_id=course
-                if profile_pic_url!=None:
-                    student.profile_pic=profile_pic_url
                 student.save()
                 del request.session['student_id']
                 messages.success(request,"Successfully Edited Student")
@@ -339,10 +322,10 @@ def edit_course_save(request):
             print(Courses.course_name)
             course.course_name=course_name
             course.save()
-            messages.success(request,"Successfully Edited Course")
+            messages.success(request,"Successfully Edited Batch")
             return HttpResponseRedirect(reverse("edit_course",kwargs={"course_id":course_id}))
         except:
-            messages.error(request,"Failed to Edit Course")
+            messages.error(request,"Failed to Edit Batch")
             return HttpResponseRedirect(reverse("edit_course",kwargs={"course_id":course_id}))
 
 

@@ -38,11 +38,10 @@ class AddStudentForm(forms.Form):
         ("Female","Female")
     )
 
-    course=forms.ChoiceField(label="Course",choices=course_list,widget=forms.Select(attrs={"class":"form-control"}))
+    course=forms.ChoiceField(label="Batch",choices=course_list,widget=forms.Select(attrs={"class":"form-control"}))
     sex=forms.ChoiceField(label="Sex",choices=gender_choice,widget=forms.Select(attrs={"class":"form-control"}))
     session_year_id=forms.ChoiceField(label="Session Year",choices=session_list,widget=forms.Select(attrs={"class":"form-control"}))
-    profile_pic=forms.FileField(label="Profile Pic",max_length=50,widget=forms.FileInput(attrs={"class":"form-control"}))
-
+   
 class EditStudentForm(forms.Form):
     email=forms.EmailField(label="Email",max_length=50,widget=forms.EmailInput(attrs={"class":"form-control"}))
     first_name=forms.CharField(label="First Name",max_length=50,widget=forms.TextInput(attrs={"class":"form-control"}))
@@ -76,7 +75,7 @@ class EditStudentForm(forms.Form):
         ("Female","Female")
     )
 
-    course=forms.ChoiceField(label="Course",choices=course_list,widget=forms.Select(attrs={"class":"form-control"}))
+    course=forms.ChoiceField(label="Batch",choices=course_list,widget=forms.Select(attrs={"class":"form-control"}))
     sex=forms.ChoiceField(label="Sex",choices=gender_choice,widget=forms.Select(attrs={"class":"form-control"}))
     session_year_id=forms.ChoiceField(label="Session Year",choices=session_list,widget=forms.Select(attrs={"class":"form-control"}))
-    profile_pic=forms.FileField(label="Profile Pic",max_length=50,widget=forms.FileInput(attrs={"class":"form-control"}),required=False)
+ 
